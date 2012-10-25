@@ -50,7 +50,7 @@ public class OrderItem {
 		this.orderNumber = orderNumber;
 	}
 	
-	public boolean isIced() {
+	public boolean getIced() {
         return this.iced;
     }
 
@@ -66,16 +66,23 @@ public class OrderItem {
 		this.shots = shots;
 	}
 
-	public DrinkType getDrinkType() {
+	public DrinkType getType() {
         return this.type;
     }
 
-	public void setDrinkType(DrinkType type) {
+	public void setType(DrinkType type) {
 		this.type = type;
 	}
 
 	public String toString() {
         return ((this.iced) ? "iced " : "hot ") + this.shots + " shot " + this.type;
     }
+	
+	public boolean equals(Object object) {
+		if(this.toString().equals(object.toString())){
+			return true;
+		}
+		return false;
+	}
 
 }

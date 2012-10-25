@@ -29,13 +29,10 @@ public class Order {
 	private List<OrderItem> orderItems = new ArrayList<OrderItem>();
 
 	/** the order number used for tracking */
-	private int number;
+	private int number =0;
 
 	// Default constructor required by Jackson Java JSON-processor
-	public Order() {}
-
-	public Order(int number) {
-		this.number = number;
+	public Order() {
 	}
 
 	public void addItem(DrinkType drinkType, int shots, boolean iced) {
@@ -45,16 +42,20 @@ public class Order {
 	public int getNumber() {
 		return number;
 	}
-
-	public void setNumber(int number) {
-		this.number = number;
-	}
 	
-	public List<OrderItem> getItems() {
+	public List<OrderItem> getOrderItems() {
 		return this.orderItems;
 	}
 
-	public void setItems(List<OrderItem> orderItems) {
+	public void setOrderItems(List<OrderItem> orderItems) {
 		this.orderItems = orderItems;
+	}
+
+	public void setNumber(int id) {
+		this.number = id;		
+	}
+	
+	public String toString(){
+		return "Order #: " + this.number + " " + this.orderItems;
 	}
 }

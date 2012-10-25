@@ -35,6 +35,6 @@
 		<poller fixed-delay="1000"/>
 	</bridge>
 
-	<stream:stdout-channel-adapter id="deliveries"/>
+	<channel id="deliveries"/>
 	
 </beans:beans>

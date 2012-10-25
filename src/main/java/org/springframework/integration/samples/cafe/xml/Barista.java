@@ -53,7 +53,7 @@ public class Barista {
 			logger.info(Thread.currentThread().getName()
 					+ " prepared hot drink #" + hotDrinkCounter.incrementAndGet() + " for order #"
 					+ orderItem.getOrderNumber() + ": " + orderItem);
-			return new Drink(orderItem.getOrderNumber(), orderItem.getDrinkType(), orderItem.isIced(),
+			return new Drink(orderItem.getOrderNumber(), orderItem.getType(), orderItem.getIced(),
 					orderItem.getShots());
 		} catch (InterruptedException e) {
 			Thread.currentThread().interrupt();
@@ -67,7 +67,7 @@ public class Barista {
 			logger.info(Thread.currentThread().getName()
 					+ " prepared cold drink #" + coldDrinkCounter.incrementAndGet() + " for order #"
 					+ orderItem.getOrderNumber() + ": " + orderItem);
-			return new Drink(orderItem.getOrderNumber(), orderItem.getDrinkType(), orderItem.isIced(),
+			return new Drink(orderItem.getOrderNumber(), orderItem.getType(), orderItem.getIced(),
 					orderItem.getShots());
 		} catch (InterruptedException e) {
 			Thread.currentThread().interrupt();

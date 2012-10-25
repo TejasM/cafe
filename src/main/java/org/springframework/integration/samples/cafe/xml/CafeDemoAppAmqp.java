@@ -47,7 +47,7 @@ public class CafeDemoAppAmqp {
 	public static void order(AbstractApplicationContext context, int count){
 		Cafe cafe = (Cafe) context.getBean("cafe");
 		for (int i = 1; i <= 100; i++) {
-			Order order = new Order(i);
+			Order order = new Order();
 			order.addItem(DrinkType.LATTE, 2, false);
 			order.addItem(DrinkType.MOCHA, 3, true);
 			cafe.placeOrder(order);

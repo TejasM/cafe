@@ -32,6 +32,7 @@ public class Waiter {
 
     @Aggregator(inputChannel = "preparedDrinks", outputChannel = "deliveries")
     public Delivery prepareDelivery(List<Drink> drinks) {
+    	System.out.println("Delivered " + drinks);
         return new Delivery(drinks);
     }
     
