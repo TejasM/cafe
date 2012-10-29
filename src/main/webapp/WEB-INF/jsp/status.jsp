@@ -30,9 +30,4 @@
 			</tr>
 		</c:forEach>
 	</table>
-	
-	<a href="<c:url value="order"/>">Create Order</a>
-	<a href="<c:url value="orderItem"/>">Create Order Item</a>
-	<a href="<c:url value="status"/>">Check Status of Orders</a>
-
 </body>

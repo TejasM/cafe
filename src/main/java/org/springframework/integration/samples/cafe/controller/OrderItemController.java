@@ -6,8 +6,11 @@ import org.springframework.integration.samples.cafe.OrderItem;
 import org.springframework.integration.samples.cafe.dao.OrderItemDao;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 @Controller
 @RequestMapping("/orderItem")
@@ -23,10 +26,9 @@ public class OrderItemController {
 	}
 	
 	@RequestMapping(method=RequestMethod.POST)
-	public String orderItem(OrderItem orderItem, Model model){
+	public @ResponseBody String orderItem(OrderItem orderItem, Model model){
 		dao.addOrderItem(orderItem); 
-		model.addAttribute("message", "Successfully create Order Item: " + orderItem.toString());
-		return "success";
+		return "Successfully created Order Item: " + orderItem.toString();
 	}
 	
 }

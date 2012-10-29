@@ -9,8 +9,10 @@ import org.springframework.integration.samples.cafe.OrderItem;
 import org.springframework.integration.samples.cafe.dao.OrderItemDao;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.ResponseStatus;
 
 @Controller
@@ -36,15 +38,13 @@ public class OrderController {
 
 	@RequestMapping(method = RequestMethod.POST)
 	@ResponseStatus(HttpStatus.CREATED)
-	public String orderCreate(Order order, Model model) {
+	public @ResponseBody String orderCreate(Order order) {
 		Cafe cafe = (Cafe) context.getBean("cafe");
 		order.setNumber(getID());
 		for (OrderItem orderitem : order.getOrderItems()) {
 			orderitem.setOrderNumber(order.getNumber());
 		}
 		cafe.placeOrder(order);
-		model.addAttribute("message",
-				"Successfully create Order #: " + order.getNumber());
-		return "success";
+		return "Successfully created Order #: " + order.getNumber();
 	}
 }

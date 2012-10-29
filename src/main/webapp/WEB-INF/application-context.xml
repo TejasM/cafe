@@ -22,8 +22,9 @@
 	</beans:bean>
 
 	<annotation-config />
-
-
+		
+	<mvc:resources mapping="/resources/**" location="/resources/" /> 
+	
 	<context:component-scan
 		base-package="org.springframework.integration.samples.cafe.annotation" />
 
