@@ -39,7 +39,10 @@
 	<mvc:annotation-driven conversion-service="conversionService" />
 
 	<gateway id="cafe" service-interface="org.springframework.integration.samples.cafe.Cafe" />
-
+	<inbound-channel-adapter id="customerChannel" ref="customer">
+		<poller fixed-delay="1000"/>
+	</inbound-channel-adapter>
+	<
 	<publish-subscribe-channel id="orders" />
 	<channel id="drinks" />
 	<channel id="coldDrinks">

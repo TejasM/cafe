@@ -9,7 +9,6 @@ import org.springframework.integration.samples.cafe.OrderItem;
 import org.springframework.integration.samples.cafe.dao.OrderItemDao;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
