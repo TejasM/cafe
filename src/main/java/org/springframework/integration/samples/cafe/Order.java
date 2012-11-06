@@ -16,16 +16,29 @@
 
 package org.springframework.integration.samples.cafe;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
+
+import javax.persistence.CascadeType;
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.Id;
+import javax.persistence.OneToMany;
 
 /**
  * @author Mark Fisher
  * @author Marius Bogoevici
  * @author Tom McCuch
  */
-public class Order {
+public class Order implements Serializable {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
+	@OneToMany(cascade=CascadeType.ALL, fetch=FetchType.EAGER)
 	private List<OrderItem> orderItems = new ArrayList<OrderItem>();
 
 	/** the order number used for tracking */

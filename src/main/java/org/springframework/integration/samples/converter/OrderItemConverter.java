@@ -18,7 +18,7 @@ public class OrderItemConverter implements GenericConverter {
 
 	public Object convert(Object arg0, TypeDescriptor arg1, TypeDescriptor arg2) {
 		String compare = arg0.toString();
-		for(OrderItem item : dao.getOrderItems()){
+		for(OrderItem item : dao.findAll()){
 			if(item.equals(compare)){
 				return item;
 			}

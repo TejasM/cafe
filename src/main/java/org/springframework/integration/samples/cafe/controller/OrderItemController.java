@@ -25,7 +25,7 @@ public class OrderItemController {
 	
 	@RequestMapping(method=RequestMethod.POST)
 	public @ResponseBody String orderItem(OrderItem orderItem, Model model){
-		dao.addOrderItem(orderItem); 
+		dao.saveAndFlush(orderItem);
 		return "Successfully created Order Item: " + orderItem.toString();
 	}
 	

@@ -16,19 +16,31 @@
 
 package org.springframework.integration.samples.cafe;
 
+import java.io.Serializable;
+
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+
 /**
  * @author Mark Fisher
  * @author Marius Bogoevici
  * @author Tom McCuch
  */
-public class OrderItem {
+@Entity
+public class OrderItem implements Serializable{
 
     private DrinkType type;
 
     private int shots = 1;
 
     private boolean iced = false;
-
+    
+    
+    @Id
+    @GeneratedValue
+    private int id;
+    
     /** the order this item is tied to */
 	private int orderNumber;
 
@@ -78,6 +90,14 @@ public class OrderItem {
         return ((this.iced) ? "iced " : "hot ") + this.shots + " shot " + this.type;
     }
 	
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
 	public boolean equals(Object object) {
 		if(this.toString().equals(object.toString())){
 			return true;
